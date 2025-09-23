@@ -23,7 +23,7 @@ def add_docstrings(f, object):
     None
     """
     time_difference = datetime.now() - start_time
-    if time_difference.total_seconds() > 5:
+    if time_difference.total_seconds() > 60:
         raise RuntimeError(
             "This program is taking too long."
         )
