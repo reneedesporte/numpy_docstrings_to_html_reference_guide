@@ -1,9 +1,15 @@
 import inspect
+import argparse
+import importlib
 import markdown
 from datetime import datetime
-import example_numpy  # TODO: remove hard-coded module import, utilize argparse
 
-target_module = example_numpy  # TODO: remove hard-coded module import
+parser = argparse.ArgumentParser()
+parser.add_argument("module", help="module for which reference guide will be genereated",
+                    type=str)
+args = parser.parse_args()
+
+target_module = importlib.import_module(args.module)
 start_time = datetime.now()
 
 def format_docstring(docstring, indent, differentator):
