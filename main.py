@@ -92,6 +92,27 @@ def main():
     with open(f"{target_module.__name__}.html", "w") as f:
         f.write("<!DOCTYPE html>\n<html>\n<head>\n")
         f.write(f"    <title>{target_module.__name__}</title>\n")
+        f.write(
+            """
+            <style>\n
+            body {
+            font-family: "Arial", sans-serif;
+            }
+            code {
+                font-family: "Courier New", monospace;
+            }
+            h2 {
+                color: darkblue;
+                font-weight: bold;
+            }
+            summary {
+                color: darkred;
+                font-weight: bold;
+                cursor: pointer;
+            }
+            </style>
+            """
+        )
         f.write("</head>\n<body>\n")
         add_docstrings(
             f, target_module, 0
