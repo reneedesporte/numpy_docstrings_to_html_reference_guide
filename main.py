@@ -38,6 +38,7 @@ def add_docstrings(f, object):
             html = markdown.markdown(obj.__doc__)
         except Exception:
             print(f"Couldn't convert docstring for {name}.")
+            continue
         f.write(f"<details><summary>{name}</summary>")
         f.write(html)  # Add docstring of obj
         add_docstrings(
